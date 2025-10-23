@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, User } from "lucide-react";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -54,8 +56,13 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" className="text-foreground">
-              Sign In
+            <Button 
+              variant="ghost" 
+              className="text-foreground"
+              onClick={() => navigate('/account')}
+            >
+              <User className="mr-2 h-4 w-4" />
+              Account
             </Button>
             <Button className="bg-gradient-primary text-background hover:opacity-90 transition-opacity">
               Get Started
@@ -85,8 +92,16 @@ const Navbar = () => {
               </a>
             ))}
             <div className="flex flex-col space-y-2 pt-4">
-              <Button variant="ghost" className="w-full text-foreground">
-                Sign In
+              <Button 
+                variant="ghost" 
+                className="w-full text-foreground"
+                onClick={() => {
+                  navigate('/account');
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                <User className="mr-2 h-4 w-4" />
+                Account
               </Button>
               <Button className="w-full bg-gradient-primary text-background hover:opacity-90 transition-opacity">
                 Get Started
