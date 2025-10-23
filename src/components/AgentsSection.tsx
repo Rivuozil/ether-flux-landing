@@ -57,7 +57,7 @@ const AgentsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 [&>*:nth-child(5)]:md:col-span-2 [&>*:nth-child(5)]:md:mx-auto [&>*:nth-child(5)]:md:max-w-md [&>*:nth-child(5)]:lg:col-span-1 [&>*:nth-child(5)]:lg:col-start-2 [&>*:nth-child(5)]:lg:mx-0 [&>*:nth-child(5)]:lg:max-w-none">
           {agents.map((agent, index) => (
             <Card
               key={index}
