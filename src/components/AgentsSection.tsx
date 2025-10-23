@@ -4,40 +4,44 @@ import { Card } from "@/components/ui/card";
 const AgentsSection = () => {
   const agents = [
     {
-      icon: Bot,
-      name: "Trend Analyzer",
-      description: "Identifies market trends and momentum shifts using advanced technical analysis.",
-      color: "from-primary to-blue-400",
+      icon: Shield,
+      name: "The Guardian",
+      subtitle: "Conservative Agent",
+      description: "Prioritizes capital preservation with low-risk strategies and steady returns.",
+      color: "from-cyan-500 to-blue-600",
+      hazeColor: "bg-cyan-500/10",
     },
     {
       icon: Zap,
-      name: "Fast Scalper",
-      description: "Executes rapid trades based on micro-movements and short-term opportunities.",
-      color: "from-accent to-green-400",
-    },
-    {
-      icon: TrendingUp,
-      name: "Swing Trader",
-      description: "Captures medium-term price movements with optimized entry and exit points.",
-      color: "from-secondary to-purple-400",
+      name: "The Hunter",
+      subtitle: "Aggressive Agent",
+      description: "Pursues high-reward opportunities with calculated aggressive positioning.",
+      color: "from-red-500 to-orange-600",
+      hazeColor: "bg-red-500/10",
     },
     {
       icon: BarChart3,
-      name: "Volume Tracker",
-      description: "Analyzes trading volume patterns to predict price movements and liquidity.",
-      color: "from-orange-500 to-red-400",
+      name: "The Analyst",
+      subtitle: "Technical Agent",
+      description: "Leverages advanced technical indicators and chart patterns for precision trading.",
+      color: "from-primary to-purple-600",
+      hazeColor: "bg-primary/10",
     },
     {
-      icon: Shield,
-      name: "Risk Manager",
-      description: "Monitors portfolio exposure and implements automated risk controls.",
-      color: "from-cyan-500 to-primary",
+      icon: TrendingUp,
+      name: "The Pulse Reader",
+      subtitle: "Sentiment Agent",
+      description: "Interprets market sentiment and social signals to predict trend shifts.",
+      color: "from-accent to-emerald-600",
+      hazeColor: "bg-accent/10",
     },
     {
       icon: Sparkles,
-      name: "Pattern Master",
-      description: "Detects chart patterns and formation signals using AI recognition.",
-      color: "from-pink-500 to-secondary",
+      name: "The Opportunist",
+      subtitle: "Arbitrage Agent",
+      description: "Identifies and exploits price discrepancies across exchanges for instant profits.",
+      color: "from-yellow-500 to-amber-600",
+      hazeColor: "bg-yellow-500/10",
     },
   ];
 
@@ -57,14 +61,18 @@ const AgentsSection = () => {
           {agents.map((agent, index) => (
             <Card
               key={index}
-              className="group p-6 bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 animate-fade-in"
+              className={`group relative p-6 bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 animate-fade-in overflow-hidden ${agent.hazeColor}`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="space-y-4">
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${agent.color} flex items-center justify-center group-hover:scale-110 transition-transform`}>
+              <div className={`absolute inset-0 bg-gradient-to-br ${agent.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300 blur-2xl`} />
+              <div className="relative space-y-4">
+                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${agent.color} flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg`}>
                   <agent.icon className="w-7 h-7 text-white" />
                 </div>
                 <div>
+                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-1">
+                    {agent.subtitle}
+                  </p>
                   <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
                     {agent.name}
                   </h3>
